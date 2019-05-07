@@ -19,7 +19,7 @@ const App: React.SFC<AppProps> = () => {
             <main className="container-fluid">
                 <Navbar />
                 <section className="container">
-                    <div className="row">
+                    <div className="row justify-content-md-center">
                         <Switch>
                             <Route exact path="/" component={AllChirps} />
                             <Route exact path="/add" component={AddChirp} />

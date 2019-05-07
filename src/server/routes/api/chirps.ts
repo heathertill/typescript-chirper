@@ -22,14 +22,8 @@ router.post('/', (req, res, next) => {
 router.put('/:id', (req, res) => {
     let id = req.params.id;
     let chirp = req.body;
-
-    if (id) {
-        Chirps.UpdateChirp(id, chirp);
-        res.send(Chirps.GetChirps());
-    } else {
-        Chirps.CreateChirp(req.body);
-        res.send(Chirps.GetChirps());
-    }
+    Chirps.UpdateChirp(id, chirp);
+    res.send(Chirps.GetChirps());
 });
 
 router.delete('/:id', (req, res) => {
