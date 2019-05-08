@@ -1,7 +1,12 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
+export interface IAdminProps extends RouteComponentProps<{ id: string }> { }
 
+export interface IAdminState {
+        user: string;
+        text: string
+}
 
 class Admin extends React.Component<IAdminProps, IAdminState> {
     constructor(props: IAdminProps) {
@@ -21,7 +26,7 @@ class Admin extends React.Component<IAdminProps, IAdminState> {
             let chirp = await resChirp.json();
             this.setState({ user: chirp.user, text: chirp.text })
         } catch (err) {
-            console.log(err, 'there was a problem')
+            console.log(err)
         }
     }
 
@@ -53,7 +58,6 @@ class Admin extends React.Component<IAdminProps, IAdminState> {
                 method: 'DELETE'
             });
             this.props.history.push('/')
-
         } catch (err) {
             console.log(err)
         }
@@ -66,8 +70,6 @@ class Admin extends React.Component<IAdminProps, IAdminState> {
     render() {
         return (
             <>
-                {/* <div>The user is: {this.state.user}</div>
-                <div>The text is: {this.state.text}</div> */}
                 <div className="card col-md-10 border">
                     <div className="card-body">
                         <h3 className="card-title">{this.state.user}</h3>
@@ -77,12 +79,13 @@ class Admin extends React.Component<IAdminProps, IAdminState> {
                                 className="form-control"
                                 defaultValue={this.state.text}
                                 onChange={ this.handleTextChange }
-                                type="text" 
+                                type="text" // could use this inline onChange instead of function
+                                // onChange={(e: React.ChangeEvent<HTMLInputElement>) => this.setState({ text: e.target.value })}
                                 />
                         </div>
                         <div className="text-right">
-                            <button className="btn btn-primary m-1" onClick={this.handleEdit}>Edit</button>
-                            <button className="btn btn-primary" onClick={this.handleDelete}>Delete</button>
+                            <button className="btn btn-blueCh m-1" onClick={this.handleEdit}>Edit</button>
+                            <button className="btn btn-blueCh" onClick={this.handleDelete}>Delete</button>
                         </div>
                     </div>
                 </div>
@@ -92,9 +95,6 @@ class Admin extends React.Component<IAdminProps, IAdminState> {
 }
 
 export default Admin;
-export interface IAdminProps extends RouteComponentProps<{ id: string }> { }
 
-export interface IAdminState {
-        user: string;
-        text: string
-}
+
+

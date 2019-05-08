@@ -1,19 +1,15 @@
 // to override bootstrap, write scss above the bootstrap import
 $theme-colors: (
-    'peachCh': rgba(239, 179, 133, 0.5),
-    'peaCh': rgba(204, 204, 102, 0.5),
     'blueCh': rgba(126, 171, 206, 0.7)
 );
 
 @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
 
+
 $font-body: 'Open Sans Condensed', sans-serif;
 $font-header: 'Alegreya SC', serif;
 $text-color: darkgrey;
 $main-color: gainsboro;
-$input-color: rgba(239, 179, 133, 0.5);
-$post-color: rgba(204, 204, 102, 0.5);
-$accent-color: rgba(126, 171, 206, 0.7);
 
 body {
     font-family: $font-body;
@@ -24,13 +20,7 @@ body {
 .logoBar {
     border-style: solid;
     border-width: 40px;
-    border-color:$main-color;
-    border-right-width: 130px;
-    border-left-width: 130px;
-}
-
-.hBorder {
-    background-color: $main-color;
+    border-color: $main-color;
 }
 
 .header {
@@ -45,12 +35,6 @@ p {
 
 .chirpInput {
     height: 300px;
-   
-}
-
-
-.fg-div {
-    background-color: $input-color;
 }
 
 .input-border {
@@ -58,5 +42,7 @@ p {
 }
 
 .btn {
-    background-color: $accent-color;
+    border: none;
+    font-family: $font-body;
+    color: white
 }

@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-export interface AllChirpsProps {
-
-}
+export interface AllChirpsProps { }
 
 export interface AllChirpsState {
     chirps: { id: string, user: string, text: string }[];
@@ -16,7 +14,6 @@ class AllChirps extends React.Component<AllChirpsProps, AllChirpsState> {
             chirps: [],
         };
     }
-
     
     async componentWillMount() {
         let res = await fetch('/api/chirps');
@@ -33,21 +30,19 @@ class AllChirps extends React.Component<AllChirpsProps, AllChirpsState> {
         this.setState({ chirps })
     }
 
-
-
     render() {
         return (
             <>
-                <div className="col-md-7">
+                <div className="col-md-9">
                     {this.state.chirps.map(chirp => {
                         return (
-                            <div key={chirp.id} className="card m-3 shadow">
+                            <div key={chirp.id} className="card p-2 m-3 shadow">
                                 <div className="card-body">
                                     <h4 className="card-title">{chirp.user}</h4>
                                     <p className="card-text">{chirp.text}</p>
                                 </div>
-                                <div>
-                                    <Link className="btn btn-primary" to={`/${chirp.id}/admin`}>Chirp Options</Link>
+                                <div className="text-right">
+                                    <Link className="btn btn-blueCh" to={`/${chirp.id}/admin`}>Options</Link>
                                 </div>
                             </div>
                         )

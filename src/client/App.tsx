@@ -8,10 +8,7 @@ import Admin from './components/Admin';
 
 import './scss/app';
 
-
-export interface AppProps {
-
-}
+export interface AppProps { }
 
 const App: React.SFC<AppProps> = () => {
     return (
