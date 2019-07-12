@@ -1,3 +1,5 @@
+//End Points
+
 import * as express from 'express';
 import * as Chirps from '../../utilities/chirpstore'
 
@@ -13,7 +15,7 @@ router.get('/:id?', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    let chirp = req.body;
+    let chirp = req.body; // body is set by chirpstore/db??
     Chirps.CreateChirp(chirp);
     res.send(Chirps.GetChirps());  // remove on final submit.. just for dev purposes
     res.sendStatus(201);

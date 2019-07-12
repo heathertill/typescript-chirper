@@ -35,7 +35,7 @@ class AddChirp extends React.Component<AddChirpProps, AddChirpState> {
                 console.log(err)
             }
         } else {
-            alert('Need user and text')
+            alert('Need user and text') /// switch to a bootstrap alert
         }
     }
 
